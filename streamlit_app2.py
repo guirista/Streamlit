@@ -4,6 +4,13 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pickle
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.svm import SVC
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import confusion_matrix
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
 
 df = pd.read_csv('train.csv')
 
@@ -73,18 +80,13 @@ if page == pages[2] :
     X_cat_scaled = pd.get_dummies(X_cat, columns=X_cat.columns)
     X = pd.concat([X_cat_scaled, X_num], axis=1)
 
-    from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=123)
 
-    from sklearn.preprocessing import StandardScaler
     scaler = StandardScaler()
     X_train[X_num.columns] = scaler.fit_transform(X_train[X_num.columns])
     X_test[X_num.columns]  = scaler.transform(X_test[X_num.columns])
 
-    from sklearn.ensemble import RandomForestClassifier
-    from sklearn.svm import SVC
-    from sklearn.linear_model import LogisticRegression
-    from sklearn.metrics import confusion_matrix
+
 
     def prediction(classifier):
         if classifier == 'Random Forest':
