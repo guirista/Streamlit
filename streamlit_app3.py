@@ -2,6 +2,9 @@ import streamlit as st
 import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.ensemble import RandomForestClassifier
+
 
 
 df = pd.read_csv('train.csv')
@@ -56,8 +59,6 @@ if page == pages[1] :
     sns.heatmap(df.select_dtypes(['number']).corr(), ax=ax)
     st.write(fig)
 
-    st.write('### Modelling')
-
 if page == pages[2] :
     st.write('### Modelling')
 
@@ -66,3 +67,10 @@ if page == pages[2] :
     y= df['Survived']
     X_cat  =df[['Pclass','Sex','Embarked']]
     X_num = df[['Age','Fare','SibSp','Parch']]
+    
+    for col in X_cat.columns:
+        X_cat[col] = X_cat[col].fillna(X_cat[col].mode()[0])
+    for col in X_num.columns:
+        X_num[col] = X_num[col].fillna(X_num[col].median())
+    X_cat_scaled = pd.get_dummies(X_cat, columns=X_cat.columns)
+    X = pd.concat([X_cat_scaled, X_num], axis=1)
