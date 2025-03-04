@@ -57,3 +57,12 @@ if page == pages[1] :
     st.write(fig)
 
     st.write('### Modelling')
+
+if page == pages[2] :
+    st.write('### Modelling')
+
+    df = df.drop(['PassengerId','Name','Ticket','Cabin'], axis=1)
+
+    y= df['Survived']
+    X_cat  =df[['Pclass','Sex','Embarked']]
+    X_num = df[['Age','Fare','SibSp','Parch']]
