@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 
+
 df = pd.read_csv('train.csv')
 
 st.title("Titanic : binary classification project")
