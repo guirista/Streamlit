@@ -71,3 +71,6 @@ if page == pages[2] :
         X_num[col] = X_num[col].fillna(X_num[col].median())
     X_cat_scaled = pd.get_dummies(X_cat, columns=X_cat.columns)
     X = pd.concat([X_cat_scaled, X_num], axis=1)
+    
+    from sklearn.model_selection import train_test_split
+    X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.2, random_state=123)
