@@ -9,9 +9,6 @@ st.sidebar.title("Table of contents")
 pages=["Exploration", "DataVizualization", "Modelling"]
 page=st.sidebar.radio("Go to", pages)
 
-joblib.load('model')
-loaded_model = pickle.load(open('model','rb'))
-
 if page == pages[0] :
     st.write('### Presentation of data')
     st.dataframe(df.head(10))
