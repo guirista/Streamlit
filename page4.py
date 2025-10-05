@@ -2,8 +2,7 @@ import streamlit as st
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestRegressor
-from sklearn.tree import DecisionTreeRegressor
+
 from sklearn.linear_model import LinearRegression
 
 
@@ -42,10 +41,8 @@ with col6:
     if st.toggle('CH4', value=True):
         df_fin['CH4'] = df['CH4']
 
-rfr = RandomForestRegressor(max_depth=1, random_state=121)
-dtr = DecisionTreeRegressor(max_depth=1, random_state=121)
 lre = LinearRegression()
-algorithms = {'Random Forest Regressor' : rfr, 'Decision Tree Regressor' : dtr, 'Linear Regression' : lre}
+algorithms = {'Linear Regression' : lre}
 
 
 with st.expander(f'Preview of final dataframe', expanded=True):
