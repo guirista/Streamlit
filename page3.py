@@ -96,7 +96,7 @@ if option == "Atmospheric CO2":
                     xticks = [2,22,42,62]                    
                     with col4:
                         if st.toggle('CO2-Model'):
-                            est_ppm = streamlit_data.read_data('D:/sachen/jobs/data analysis/world temp project/est_ppm.csv')
+                            est_ppm = pd.read_csv('est_ppm.csv')
                             df_atm = pd.merge(df_atm,est_ppm, on='Year', how='outer')
                             df_atm = df_atm.sort_values('Year')
                             df_atm = df_atm.drop('Unnamed: 0', axis=1)
@@ -154,5 +154,6 @@ if option == "Atmospheric CO2":
     
 
         '''
+
 
 
