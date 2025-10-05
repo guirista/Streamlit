@@ -7,8 +7,8 @@ streamlit_data
 streamlit_widgets
 numpy
 datetime
-bokeh
-plotly.graph_objects
+
+
 
 
 
