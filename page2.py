@@ -28,10 +28,10 @@ st.title("Data Presentation")
    # st.stop()
 #df = streamlit_data.read_data(uploaded_file)
 csv_path_dict = {
-    "Global temperature anomalies" : 'D:/sachen/jobs/data analysis/world temp project/GLB_dSST.csv',
-    "Temperature anomalies in the northern hemisphere" : 'D:/sachen/jobs/data analysis/world temp project/NH_dSST.csv',
-    "Temperature anomalies in the southern hemisphere" : 'D:/sachen/jobs/data analysis/world temp project/SH_dSST.csv',
-    "Temperature anomalies by latitude range" : 'D:/sachen/jobs/data analysis/world temp project/ZonAnn.csv',
+    "Global temperature anomalies" : 'GLB_dSST.csv',
+    "Temperature anomalies in the northern hemisphere" : 'NH_dSST.csv',
+    "Temperature anomalies in the southern hemisphere" : 'SH_dSST.csv',
+    "Temperature anomalies by latitude range" : 'ZonAnn.csv',
 }   
 
 
