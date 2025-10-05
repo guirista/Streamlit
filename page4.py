@@ -15,7 +15,7 @@ st.markdown(
 
 csv_path_dict = 'data.csv'
 
-df = streamlit_data.read_data(csv_path_dict)
+df = pd.read_csv(csv_path_dict)
 
 
 with st.expander(f'Preview of final dataframe', expanded=True):
