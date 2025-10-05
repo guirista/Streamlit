@@ -6,6 +6,7 @@ numpy
 datetime
 bokeh
 plotly
+sklearn
 
 
 
