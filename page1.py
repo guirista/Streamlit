@@ -1,6 +1,5 @@
 import streamlit as st
 from PIL import Image
-from streamlit_extras.stylable_container import stylable_container
 
 st.title("World Temperature Project: Classification Project")
 
