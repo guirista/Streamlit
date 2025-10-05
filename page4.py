@@ -1,6 +1,5 @@
 import streamlit as st
 import numpy as np
-import streamlit_data
 import pandas as pd
 
 
