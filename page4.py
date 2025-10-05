@@ -1,11 +1,7 @@
 import streamlit as st
-import matplotlib.pyplot as plt
 import numpy as np
 import streamlit_data
 import pandas as pd
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
 from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.tree import DecisionTreeRegressor
@@ -21,7 +17,7 @@ st.markdown(
     """
 )
 
-csv_path_dict = 'D:/sachen/jobs/data analysis/world temp project/data.csv'
+csv_path_dict = 'data.csv'
 
 rfr = RandomForestRegressor(max_depth=1, random_state=121)
 dtr = DecisionTreeRegressor(max_depth=1, random_state=121)
