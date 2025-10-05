@@ -6,7 +6,8 @@ numpy
 datetime
 bokeh
 plotly
-scikit-learn
+scikit-learn == 1.2.2
+
 
 
 
