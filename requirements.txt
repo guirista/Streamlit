@@ -8,7 +8,7 @@ streamlit_widgets
 numpy
 datetime
 bokeh
-plotly
+
 
 
 
