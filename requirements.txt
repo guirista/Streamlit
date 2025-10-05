@@ -4,6 +4,8 @@ streamlit == 1.37.1
 pandas
 numpy
 datetime
+streamlit_data
+
 
 
 
