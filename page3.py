@@ -63,7 +63,7 @@ if option == "Global greenhouse gas emissions":
 if option == 'Population':
     selected_path = csv_path_dict[option]
     col1,col2,col3 = st.columns([1,1,1])
-    df_pop = streamlit_data.read_data(selected_path)
+    df_pop = pd.read_csv(selected_path)
     df_pop = df_pop.drop(['Code'],axis=1)
     with col1:
         if st.toggle('Filter by World'):
@@ -76,7 +76,7 @@ if option == 'Population':
 if option == "Atmospheric CO2":
     selected_path = csv_path_dict[option]
     col1,col2,col3,col4 = st.columns([1,1,1,1])
-    df_atm = streamlit_data.read_data(selected_path)
+    df_atm = pd.read_csv(selected_path)
     df_atm = df_atm.rename(columns={'Yr':'Year'})
     xticks = [24,264,504,744]
     xtext = [1960,1980,2000,2020]
@@ -154,4 +154,5 @@ if option == "Atmospheric CO2":
     
 
         '''
+
 
