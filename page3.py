@@ -1,19 +1,7 @@
-from bokeh.plotting import figure, show, output_notebook
-from bokeh.models import LinearColorMapper, ColorBar, ColumnDataSource, CustomJS, Slider, Range1d, LinearAxis, Tabs, Panel
-from bokeh.tile_providers import get_provider, Vendors
-from bokeh.models.annotations import BoxAnnotation, Label, Span
-from bokeh.palettes import Magma
-from bokeh.transform import linear_cmap, transform
-from bokeh.layouts import column, row
 import plotly.graph_objects as go 
 from plotly.subplots import make_subplots
 import pandas as pd
-import matplotlib.pyplot as plt
 import numpy as np
-import streamlit as st
-import streamlit_data
-import streamlit_widgets
-
 
 st.title("Additional data")
 
@@ -31,9 +19,9 @@ st.markdown(
 
 
 csv_path_dict = {
-    "Global greenhouse gas emissions" : 'D:/sachen/jobs/data analysis/world temp project/owid-co2-data.csv',
-    "Population": 'D:/sachen/jobs/data analysis/world temp project/population.csv',
-    "Atmospheric CO2": 'D:/sachen/jobs/data analysis/world temp project/monthly_in_situ_co2_mlo.csv'
+    "Global greenhouse gas emissions" : 'owid-co2-data.csv',
+    "Population": 'population.csv',
+    "Atmospheric CO2": 'monthly_in_situ_co2_mlo.csv'
 }
 
 relcols = ['country','year','population','co2','co2_including_luc','nitrous_oxide','methane']
@@ -57,7 +45,7 @@ option = st.selectbox('Choice of the CSV file to be loaded', ["Select"] + list(c
 if option == "Global greenhouse gas emissions":
     selected_path = csv_path_dict[option]
     col1,col2,col3 = st.columns([1,1,1])
-    df_ghg = streamlit_data.read_data(selected_path)
+    df_ghg = pd.read_csv(selected_path)
     with col1:
         if st.toggle('Filter by World'):
             df_ghg = df_ghg.loc[df_ghg.country == 'World']
@@ -163,4 +151,5 @@ if option == "Atmospheric CO2":
         if st.session_state.df_Atm.empty:
             st.session_state.df_SH = df
     
+
         '''
