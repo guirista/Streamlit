@@ -3,6 +3,13 @@ joblib == 1.2.0
 streamlit == 1.37.1
 pandas
 scikit-learn
+streamlit_data
+streamlit_widgets
+numpy
+datetime
+bokeh
+plotly.graph_objects
+
 
 
 
