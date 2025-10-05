@@ -56,7 +56,7 @@ option = st.selectbox('Choice of the CSV file to be loaded', ["Select"] + list(c
 if option != "Select":
     col1,col2,col3,col4 = st.columns([1,1,1,1])
     selected_path = csv_path_dict[option]
-    df = streamlit_data.read_data(selected_path)
+    df = pd.read_csv(selected_path)
     with col1:
         if st.toggle('Clean'):
             df = df.replace('***', np.NaN)
