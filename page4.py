@@ -4,7 +4,8 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 
 from sklearn.linear_model import LinearRegression
-
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.tree import DecisionTreeRegressor
 
 st.title("Machine Learning")
 
@@ -41,9 +42,33 @@ with col6:
     if st.toggle('CH4', value=True):
         df_fin['CH4'] = df['CH4']
 
+rfr = RandomForestRegressor(max_depth=1, random_state=121)
+dtr = DecisionTreeRegressor(max_depth=1, random_state=121)
 lre = LinearRegression()
-algorithms = {'Linear Regression' : lre}
+
+algorithms = {'Random Forest Regressor' : rfr, 'Decision Tree Regressor' : dtr, 'Linear Regression' : lre}
 
 
 with st.expander(f'Preview of final dataframe', expanded=True):
     st.dataframe(df_fin,column_config={'Year':st.column_config.NumberColumn(format='%d')})
+
+target = df_fin.Temp_Change
+data = df_fin.drop('Temp_Change', axis=1)
+
+X_train, X_test, y_train, y_test = train_test_split(data,target, test_size=0.3, random_state=145)
+
+option = st.selectbox('Choice of the ML algorithm', ["Select"] + list(algorithms.keys()))
+
+if option == 'Random Forest Regressor':
+    mla = rfr
+elif option == 'Decision Tree Regressor':
+    mla = dtr
+elif option == 'Linear Regression':
+    mla = lre
+
+if option != 'Select':
+    mla.fit(X_train,y_train)
+    y_pred = mla.predict(X_test)
+    st.write(f'{option} test accuracy:', mla.score(X_test,y_test))
+    st.write(f'{option} train acuracy:', mla.score(X_train,y_train))
+
