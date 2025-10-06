@@ -4,6 +4,11 @@ import pandas as pd
 import numpy as np
 import datetime
 from bokeh.plotting import figure, show, output_notebook
+from bokeh.tile_providers import get_provider, Vendors
+from bokeh.models.annotations import BoxAnnotation, Label, Span
+from bokeh.palettes import Magma
+from bokeh.transform import linear_cmap, transform
+from bokeh.layouts import column, row
 
 import plotly.graph_objects as go 
 from plotly.subplots import make_subplots
